@@ -29,9 +29,9 @@ router.post('/savedata/:someid', function (req, res, next) {
         */
         if (ok) {
             yield model.save();
-            res.redirect('/home');
+            res.render('sucess_page');
         } else {
-            res.render('sample', {errors: errors});
+            res.render('error_page', {errors: errors});
         }
     });
 });
