@@ -1,4 +1,4 @@
-// export asc function to global or just define it before async fuctions, rename it as you like
+// export asc function to global or just define it before async functions, rename it as you like
 
 exports.asc = asc = function (gen) {
     var fn = gen();
@@ -15,8 +15,16 @@ exports.asc = asc = function (gen) {
                 }
             );
         }else{
-            return handle(fn.next());  // normal generator
+            try {
+                return handle(fn.next());  // generator
+            } catch (err) {
+                return fn.throw(err);
+            }
         }
     }
-    return handle(fn.next());
+    try {
+        return handle(fn.next());
+    } catch (err) {
+        return fn.throw(err);
+    }
 }
