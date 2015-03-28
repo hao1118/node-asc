@@ -35,8 +35,3 @@ router.post('/savedata/:someid', function (req, res, next) {
         }
     });
 });
-
-//or in this way:
-router.post('/savedata/:someid', asc(function* (req, res, next) {
-    ...
-}));
