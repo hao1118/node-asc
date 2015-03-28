@@ -1,4 +1,4 @@
-// export asc function to global
+// export asc function to global or just define it before async fuctions, rename it as you like
 
 exports.asc = asc = function (gen) {
     var fn = gen();
